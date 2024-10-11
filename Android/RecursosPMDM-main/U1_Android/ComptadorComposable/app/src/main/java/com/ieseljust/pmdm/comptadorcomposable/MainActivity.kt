@@ -79,7 +79,7 @@ fun ComptadorApp() {
                     Button(onClick = { comptador-- }) {
                         Text(text = "-", fontSize = 34.sp)
                     }
-                    Button(onClick = { comptador==0 }) {
+                    Button(onClick = { comptador=0 }) {
                         Text(text = "0", fontSize = 34.sp)
                     }
 
