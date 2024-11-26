@@ -108,7 +108,11 @@ mostraInfoComarca(String comarca) async {
   // TO-DO
   // La llista de comarques s'obté directament
   Comarca? com = (await ComarquesService.infoComarca(comarca));
-  print(com.toString());
+    if (com != null){
+      print(com.toString());
+    }else{
+      print("No se ha encontrado la comarca.");
+    }
 }
 
 
