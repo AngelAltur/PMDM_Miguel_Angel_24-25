@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://bkpfyh4dm45xo"]
+
+[ext_resource type="Texture2D" uid="uid://btbyp5s52e2o2" path="res://assest/paret_vertical.png" id="1_f1a3l"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_eo5i7"]
+size = Vector2(30, 1440)
+
+[node name="ParetEsquerra" type="StaticBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_f1a3l")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_eo5i7")

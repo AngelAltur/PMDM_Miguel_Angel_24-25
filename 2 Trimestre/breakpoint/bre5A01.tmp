@@ -1,0 +1,47 @@
+[gd_scene load_steps=12 format=3 uid="uid://bnm46c54yi5n"]
+
+[ext_resource type="PackedScene" uid="uid://bkpfyh4dm45xo" path="res://paret_esquerra.tscn" id="1_eddfq"]
+[ext_resource type="PackedScene" uid="uid://ganrb1jsvjax" path="res://paret_dreta.tscn" id="2_d64r8"]
+[ext_resource type="PackedScene" uid="uid://bvck0herbhfvb" path="res://paret_dalt.tscn" id="3_hn0nx"]
+[ext_resource type="PackedScene" uid="uid://b3r1jsowtnugj" path="res://limit_joc.tscn" id="4_qpfsf"]
+[ext_resource type="Script" path="res://scripts/limit_joc.gd" id="5_8boe5"]
+[ext_resource type="PackedScene" uid="uid://ihttte48oben" path="res://jugador.tscn" id="6_vgd0d"]
+[ext_resource type="Script" path="res://scripts/jugador.gd" id="7_b5sxs"]
+[ext_resource type="PackedScene" uid="uid://bggst77k3lv0w" path="res://pilota.tscn" id="7_x5t5y"]
+[ext_resource type="PackedScene" uid="uid://cwrch8qxo0k3i" path="res://blocs.tscn" id="8_dr6jd"]
+[ext_resource type="Script" path="res://scripts/pilota.gd" id="9_0kbmc"]
+[ext_resource type="Script" path="res://scripts/blocs.gd" id="11_6rp0o"]
+
+[node name="Breakout" type="Node2D"]
+
+[node name="ParetEsquerra" parent="." instance=ExtResource("1_eddfq")]
+position = Vector2(15, 720)
+
+[node name="ParetDreta" parent="." instance=ExtResource("2_d64r8")]
+position = Vector2(15, 733)
+
+[node name="ParetDalt" parent="." instance=ExtResource("3_hn0nx")]
+position = Vector2(15, 733)
+
+[node name="LimitJoc" parent="." instance=ExtResource("4_qpfsf")]
+position = Vector2(15, 593)
+script = ExtResource("5_8boe5")
+
+[node name="Jugador" parent="." instance=ExtResource("6_vgd0d")]
+position = Vector2(12, 45)
+script = ExtResource("7_b5sxs")
+
+[node name="Pilota" parent="." instance=ExtResource("7_x5t5y")]
+position = Vector2(19, 501)
+script = ExtResource("9_0kbmc")
+
+[node name="Blocs" parent="." instance=ExtResource("8_dr6jd")]
+position = Vector2(203, 1112)
+script = ExtResource("11_6rp0o")
+
+[node name="Blocs" parent="Blocs" instance=ExtResource("8_dr6jd")]
+position = Vector2(128, 0)
+collision_layer = 8
+collision_mask = 8
+
+[connection signal="body_entered" from="LimitJoc" to="LimitJoc" method="_on_body_entered"]
