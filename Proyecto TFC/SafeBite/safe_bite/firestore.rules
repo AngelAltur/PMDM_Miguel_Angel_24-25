@@ -1,0 +1,15 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // Cubre /users/{userId} y cualquier colección/subcolección bajo ese usuario
+    match /users/{userId}/{allPaths=**} {
+      allow read, write: if request.auth != null
+                        && request.auth.uid == userId;
+    }
+    // Impide todo lo demás
+    match /{document=**} {
+      allow read, write: if false;
+    }
+  }
+}
+
